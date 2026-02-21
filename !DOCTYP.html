@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>شيصادف اليوم ؟؟</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Tahoma, Arial;
+  background: #f5efe6;
+  color: #4a3427;
+  direction: rtl;
+overflow-y: auto;
+}
+
+/* صفحات */
+.page {
+  display: none;
+  height: 100vh;
+  position: relative;
+  text-align: center;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.page.active {
+  display: block;
+}
+
+/* شخصيات فيديو */
+.character {
+  position: absolute;
+  bottom: 40px;
+  transition: 1s;
+  width: 180px;
+}
+
+.cat {
+  left: 15%;
+  animation: sway 3s ease-in-out infinite;
+}
+
+.you {
+  right: 15%;
+  animation: hop 2.2s ease-in-out infinite;
+}
+
+.cake {
+  width: 260px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  z-index: 3;
+  transition: 1.2s;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(30px); 
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* نص */
+.bubble {
+  background: #fff;
+  border-radius: 25px;
+  padding: 30px;
+  max-width: 700px;
+  margin: 60px auto;
+  font-size: 24px;
+  line-height: 2;
+position: relative;
+}
+
+.corner-decor {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 70px;
+  transform: rotate(25deg);
+  pointer-events: none;
+}
+
+/* زر */
+button {
+  margin-top: 30px;
+  padding: 18px 40px;
+  border: none;
+  border-radius: 40px;
+  background: #c8a27c;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+button:hover {
+  transform: scale(1.08);
+  transition: 0.3s;
+}
+/* حركات */
+@keyframes sway {
+  0% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+  100% { transform: rotate(-2deg); }
+}
+
+@keyframes hop {
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-12px); }
+  60% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+/* بلالين */
+.balloon {
+  position: absolute;
+  bottom: -150px;
+  width: 90px;
+  animation: rise linear infinite;
+}
+
+@keyframes rise {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-120vh); opacity: 1; }
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4) inset;
+    background: linear-gradient(135deg, #c8a27c, #a67c52);
+}
+
+.storyBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- صفحة 1 -->
+<div class="page active" id="page1"> 
+  <img src="cat.png" class="cake" id="cake1">
+  <div class="bubble">
+   ولجج شتسويينن هناا روحيي روحييي !
+  </div>
+ <button onclick="nextPage()">ماا روح</button>
+</div>
+
+<!-- صفحة 2 -->
+<div class="page" id="page2">
+
+  <div class="bubble">
+    🐱: ترا شاافتنهه ولجج
+    <br>
+    👤: ءءء عادييي سوي روحج متفاجئه و متدرين !🤫
+  </div>
+  <button onclick="nextPage()">تمام</button>
+</div>
+
+<!-- صفحة 3 -->
+<div class="page" id="page3">
+  <video src="cat.webm" class="character cat hidden" autoplay loop muted id="hideCat"></video>
+  <video src="you.webm" class="character you hidden" autoplay loop muted id="hideYou"></video>
+  <img src="cake.png" class="cake" id="cake">
+  <div class="bubble">
+    انفخييي الشمعه 
+  </div>
+  <button onclick="reveal()">نفخت </button>
+</div>
+
+<!-- صفحة 4 -->
+<div class="page" id="page4">
+ 
+<video src="cat.webm" class="character cat hidden" autoplay loop muted id="hideCat"></video>
+  <video src="you.webm" class="character you hidden" autoplay loop muted id="hideYou"></video>
+  <div class="bubble">
+    ملاكييي يروحييي <br>
+رمضان مبارك اول شيي <br>
+ثانيا يروحييييي انتيي كلل عام وانتي بألف خيرر !!<br>
+يعني سوري يمكن اضوجج هواي و مدري شنو خصيصا بأخر ايام <br>
+ءهه هه هه هه احمممم 😅<br>
+ما معذوره بس تعذرينا مو ؟ احمم احمم<br>
+عوفينا من هالسوالف <br>
+طبعاا شنو يملوكه ملوكتي حيييييللل احبج حيل بشكل اوفر هايشنو<br>
+والله شكد يمرون عليه ناس مثل مواقفج وياي ما الكه ابدد ابدد ابد <br>
+يااربب كل سنه وياج تظل <br>
+يمكن السادس حيفركنا السنه الجايه يمه بوفياا ويتت !!<br>
+احمم صح حيفركنا بس خل يكون بعلمج انو لو اتبعدنا عن بعض للازل و لو مروا عليه بشر العالم كلها <br>
+مراح احب و الكه مثلج ابدد ابدد ابدد !!!<br>
+و دائما اتفاخر بأنو عندي مثلج 🥹❤️‍🩹<br>
+اطلق كائن مر عليه احبجج احبجج احبجج <br>
+و يا رب يبعد عنج كل شر <br>
+مممحححح 💋
+
+<div class="corner-decor">🎀</div> 
+
+  </div>
+
+
+</div>
+
+<!-- أصوات -->
+
+<audio id="partySound" src="1.mp3" preload="auto"></audio>
+
+<script>
+let current = 1;
+
+const party = document.getElementById("partySound");
+
+function startCharacterSounds() {
+  party.loop = true;
+  party.play();
+}
+
+function stopCharacterSounds() {
+  party.pause();
+  party.currentTime = 0;
+}
+
+// الانتقال بين الصفحات
+function nextPage() {
+  document.getElementById("page" + current).classList.remove("active");
+  current++;
+  document.getElementById("page" + current).classList.add("active");
+}
+
+
+
+
+// كشف الكيك والشخصيات في الصفحة 3
+function reveal() {
+  stopCharacterSounds(); // أول شي توقف الأصوات
+
+  const cake = document.getElementById("cake");
+  const cat = document.getElementById("hideCat");
+  const you = document.getElementById("hideYou");
+
+  // تحريك الكيك لأسفل
+  cake.style.bottom = "-300px";
+
+  // إظهار الشخصيات تدريجيًا
+  setTimeout(() => {
+    cat.classList.remove("hidden");
+    you.classList.remove("hidden");
+  }, 300);
+
+  // تشغيل صوت الاحتفال مرة واحدة
+  document.getElementById("partySound").play();
+
+  // بعد 2.5 ثانية الانتقال للصفحة الأخيرة
+  setTimeout(() => {
+    nextPage();
+    launchBalloons();
+  }, 2500);
+}
+
+// إطلاق البالونات
+function launchBalloons() {
+  for (let i = 0; i < 8; i++) {
+    let b = document.createElement("img");
+    b.src = "bb.png";
+    b.className = "balloon";
+    b.style.left = Math.random() * 90 + "vw";
+    b.style.animationDuration = (8 + Math.random() * 5) + "s";
+    b.style.animationDelay = (Math.random() * 5) + "s";
+    document.body.appendChild(b);
+  }
+}
+// إزالة الـ hidden عن الفيديوات في الصفحة 4 بعد الانتقال إليها
+function showVideosPage4() {
+  const cat = document.querySelector("#page4 .cat");
+  const you = document.querySelector("#page4 .you");
+  if(cat) cat.classList.remove("hidden");
+  if(you) you.classList.remove("hidden");
+}
+
+// عدل nextPage لتشغيل هذا
+function nextPage() {
+  document.getElementById("page" + current).classList.remove("active");
+  current++;
+  const newPage = document.getElementById("page" + current);
+  newPage.classList.add("active");
+
+  if(current === 4) {
+    showVideosPage4(); // هنا نكشف الفيديوات
+  }
+}
+</script>
+
+</body>
+</html>
